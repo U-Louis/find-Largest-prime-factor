@@ -1,0 +1,33 @@
+let primes = [];
+
+function isPrime(numberOfPrimes) {
+    var range = 0;
+
+    while (primes.length < numberOfPrimes) {
+        range++;
+        for (i = 2; i <= range; i++) { 
+            for (j = 0; j < primes.length + 1; j++) { 
+                if (i % primes[j] == 0) { 
+                    j = primes.length + 1; 
+                } else if (j == primes.length) { 
+                    primes.push(i);
+                    j = primes.length + 1; 
+                }
+            }
+        }
+    }
+    console.log(primes);
+}
+
+isPrime(250);
+
+var num = 600851475143;
+var multi = 1;
+
+for (i = 0; i < primes.length; i++) {
+    if (num % primes[i] == 0) {
+        num /= primes[i];
+        multi *= primes[i];
+    }
+}
+console.log(num);
